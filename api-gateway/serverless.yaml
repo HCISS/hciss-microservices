@@ -1,0 +1,61 @@
+service: hciss
+frameworkVersion: '3'
+disabledDeprecations: '*'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-warmup
+  - serverless-offline
+  - serverless-plugin-optimize
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs14.x
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource:
+        - !Sub arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:${self:service}-${opt:stage, self:provider.stage}-*
+  region: 'eu-central-1'
+  memorySize: 1024
+  timeout: 30
+
+custom:
+  warmup:
+    default:
+      enabled: false
+      events:
+        - schedule: rate(5 minutes)
+      concurrency: 1
+      vpc: false
+      timeout: 30
+      tracing: true
+
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+    TITLE: ${env):TITLE}
+    AUTHOR: ${env):AUTHOR}
+    DB_HOST: ${env):DB_HOST}
+    DB_PORT: ${env):DB_PORT}
+    DB_USERNAME: ${env):DB_USERNAME}
+    DB_PASSWORD: ${env):DB_PASSWORD}
+    DB_DATABASE: ${env):DB_DATABASE}
+    JWT_SECRET: ${env):JWT_SECRET}
+
+functions:
+  main:
+    handler: serverless.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
+    warmup:
+      default:
+        enabled: true
+package:
+  individually: true

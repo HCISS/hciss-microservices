@@ -1,0 +1,18 @@
+{
+  "name": "producers",
+  "version": "1.0.0",
+  "description": "producers",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "signal:pro" : "node signal-producer.js",
+    "trade:pro" : "node trade-anormlies-producer-BINANCE.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "kafkajs": "^1.12.0"
+  }
+}
