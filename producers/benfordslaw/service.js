@@ -2,7 +2,7 @@ import Benford from "./benfordslaw.js";
 import fs from "fs";
 //let data = fs.readFileSync("./0218_0220_ETH.json", "utf8"); -> Historical
 //let data = fs.readFileSync("./history_0319_0321.json", "utf8"); -> Historical
-let data = fs.readFileSync("./0223_1SEC_BINANCE_BTC_SPOT.json", "utf8"); //ETH - BTC latest 1 sec div.
+let data = fs.readFileSync("./utils/queue.json", "utf8"); //ETH - BTC latest 1 sec div.
 let response = JSON.parse(data);
 
 let prices = [];

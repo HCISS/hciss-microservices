@@ -1,44 +1,61 @@
 import axios from "axios";
+import fs from "fs";
 
-//https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history?period_id=1MIN&time_start=2022-03-19T00:00:00&time_end=2022-03-20T00:00:00&limit=10000
+function apiCall(lastUpdate) {
+  axios({
+    url: "https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history",
+    //url: "https://rest.coinapi.io/v1/trades/latest?limit=1000&filter_symbol_id=ETH;BTC",
+    method: "GET",
+    params: {
+      period_id: "1MIN",
+      time_start: lastUpdate,
+      time_end: new Date().toISOString(),
+      limit: 1000,
+      apikey: "F01A3C34-19E3-4764-92DD-1FC5889BA3F0",
+    },
+    //headers: {},
+  })
+    .then((response, err) => {
+      console.log(lastUpdate, new Date().toISOString());
 
-// axios({
-//   url: "https://rest.coinapi.io/v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history",
-//   method: "GET",
-//   params: {
-//     period_id: "1MIN",
-//     time_start: "2022-03-19T00:00:00",
-//     time_end: "2022-03-20T00:00:00",
-//     limit: 10000,
-//     apikey: "F01A3C34-19E3-4764-92DD-1FC5889BA3F0",
-//   },
-//   //headers: {},
-// })
-//   .then((response, err) => {
-//     if (response.status === 200) {
-//       console.log(response.data);
+      if (response.status === 200) {
+        fs.writeFile(
+          "./queue.json",
+          JSON.stringify(response.data),
+          { flag: "w" },
+          function (err) {
+            console.log(err);
+          }
+        );
+      }
+    })
+    .catch(function (error) {
+      if (error.response) {
+        console.log(error.response);
+        console.log(error.response.status);
+      }
+    });
+}
 
-//       const price_open = [];
-//       const price_high = [];
-//       const price_low = [];
-//       const price_close = [];
- 
+let lastUpdate;
 
-//     }
-//   })
-//   .catch(function (error) {
-//     if (error.response) {
-//       console.log(error.response);
-//       console.log(error.response.status);
-//     }
-//   });
+setInterval(() => {
+  fs.stat("./queue.json", (error, stats) => {
+    // in case of any error
+    if (error) {
+      console.log(error);
+      return;
+    }
 
+    lastUpdate = stats.mtime.toISOString();
+    let now = new Date().toISOString();
+    let diff = Math.abs(Math.round((stats.mtime - new Date()) / (1000 * 60)));
 
-import fs from 'fs';
-let data=fs.readFileSync('./response.json', 'utf8');
-let response=JSON.parse(data);
-
-let bl = response.map( (x) => console.log(x.price_open) );
-
-
-//console.log(response)
+    if (diff > 10) {
+      console.log("Api Call .....................................");
+      apiCall(lastUpdate);
+    } else {
+      console.log("Lastupdate was " + diff + " minutes ago.");
+    }
+  });
+}, 30000);

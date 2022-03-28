@@ -15,6 +15,7 @@ const config = require('./config');
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/users');
+const cpRouter = require('./routes/cp');
 
 const app = express();
   
@@ -53,6 +54,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/api', verifyToken);
 app.use('/api/user', userRouter);
+app.use('/api/v1',cpRouter);
  
 // catch 404 and forward to error handler
 

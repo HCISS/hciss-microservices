@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "api": "node benfordslaw.js",
+    "api": "node api.js",
+    "service": "node service.js",
+    "fibonacci": "node fibonacci.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

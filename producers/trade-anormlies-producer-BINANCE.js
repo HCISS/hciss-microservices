@@ -1,12 +1,9 @@
-import {Kafka} from "kafkajs";
+import { Kafka } from "kafkajs";
 import Benford from "./benfordslaw/benfordslaw.js";
 
 //dummydata
 import fs from "fs";
-let data = fs.readFileSync(
-  "./benfordslaw/sampledata/0223_1SEC_BINANCE_BTC_SPOT.json",
-  "utf8"
-); //ETH - BTC latest 1 sec div.
+let data = fs.readFileSync("../utils/queue.json", "utf8"); //ETH - BTC latest 1 sec div.
 let response = JSON.parse(data);
 let prices = [];
 let bl = response.map((x, i) =>
@@ -16,14 +13,38 @@ let bl = response.map((x, i) =>
 let result = prices.map((elem, index) =>
   prices.slice(0, index + 1).reduce((a, b) => a + b)
 );
-//console.log(prices, result);
+
 const benford = new Benford(prices);
-const computed = benford.computed();
+const computed = {};
+computed.data = benford.computed();
+
+console.log(computed.data);
+
+let riskFactor = 0;
+for (let i = 1; i <= 9; i++) {
+  //riskFactor += Math.abs(computed.data[i].deviation);
+  let dev = computed.data[i].deviation;
+  if (computed.data[i].deviation) {
+    riskFactor = riskFactor + Math.abs(parseInt(computed.data[i].deviation));
+  }
+}
+
+console.log("R:", riskFactor);
+
+if (riskFactor <= -15 || riskFactor >= 15) {
+  computed.alert = 1;
+} else {
+  computed.alert = 0;
+}
 
 setInterval(() => createProducer(computed), 10000);
 
 async function createProducer(computed) {
   try {
+    computed.alert = Math.round(Math.random()); //sim.
+
+    //console.log(computed.alert);
+
     const kafka = new Kafka({
       clientId: "kafka_anormalies_client",
       brokers: ["127.0.0.1:9092"],
@@ -38,10 +59,12 @@ async function createProducer(computed) {
       topic: "trade_anormalies_topic",
       messages: [
         {
-          value: `${JSON.stringify(computed)} \npid: ` + Math.floor(Math.random() * 10000),
+          value: `${JSON.stringify(computed)}`,
           partition: 0,
         },
       ],
+      key: "benfordslaw",
+      attributes: 0,
     });
     //console.log("Produced!", JSON.stringify(message_result));
     await producer.disconnect();
