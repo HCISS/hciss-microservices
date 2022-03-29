@@ -1,0 +1,809 @@
+{
+	"info": {
+		"_postman_id": "91157d1e-b04e-47b7-ae72-eec1a41fa96c",
+		"name": "HCISS-RestService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/exchanges",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0ODk0LCJleHAiOjE2NDgyMjg0OTR9.f3SPAHIe18AWJ5JOXemr3t64GyZrv9NlASncEXv1J2w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchanges",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchanges"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges?filter_exchange_id {Multiple}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0ODk0LCJleHAiOjE2NDgyMjg0OTR9.f3SPAHIe18AWJ5JOXemr3t64GyZrv9NlASncEXv1J2w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchanges?filter_exchange_id=BITSTAMP;GEMINI",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchanges"
+					],
+					"query": [
+						{
+							"key": "filter_exchange_id",
+							"value": "BITSTAMP;GEMINI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges/:exchange_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchanges/ECB",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchanges",
+						"ECB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges/icons/:icon_size",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchanges/icons/16",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchanges",
+						"icons",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges/assets",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/assets",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"assets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges/assets/?filter_asset_id {Multiple}",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/assets?filter_asset_id=ETH;BTC",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"assets"
+					],
+					"query": [
+						{
+							"key": "filter_asset_id",
+							"value": "ETH;BTC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges/assets/:filter_asset_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/assets/ETH",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"ETH"
+					],
+					"query": [
+						{
+							"key": "filter_asset_id",
+							"value": "ETH;BTC",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchanges/assets/icons/:icon_size",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/assets/icons/48",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"assets",
+						"icons",
+						"48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/symbols",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/symbols",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"symbols"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/symbols/:exchange_id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CoinAPI-Key",
+						"value": "F01A3C34-19E3-4764-92DD-1FC5889BA3F0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/symbols?filter_symbol_id={filter_symbol_id}&filter_exchange_id={filter_exchange_id}&filter_asset_id={filter_asset_id}",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"symbols"
+					],
+					"query": [
+						{
+							"key": "filter_symbol_id",
+							"value": "{filter_symbol_id}"
+						},
+						{
+							"key": "filter_exchange_id",
+							"value": "{filter_exchange_id}"
+						},
+						{
+							"key": "filter_asset_id",
+							"value": "{filter_asset_id}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/symbols/:withFiltersDetailed",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CoinAPI-Key",
+						"value": "F01A3C34-19E3-4764-92DD-1FC5889BA3F0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/symbols?filter_symbol_id={filter_symbol_id}&filter_exchange_id={filter_exchange_id}&filter_asset_id={filter_asset_id}",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"symbols"
+					],
+					"query": [
+						{
+							"key": "filter_symbol_id",
+							"value": "{filter_symbol_id}"
+						},
+						{
+							"key": "filter_exchange_id",
+							"value": "{filter_exchange_id}"
+						},
+						{
+							"key": "filter_asset_id",
+							"value": "{filter_asset_id}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchangerate/BTC/USD",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchangerate/BTC/USD?time=2022-03-20T14:00",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchangerate",
+						"BTC",
+						"USD"
+					],
+					"query": [
+						{
+							"key": "time",
+							"value": "2022-03-20T14:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchangerate/BTC/:versusWithParameters",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchangerate/BTC?invert=false&filter_asset_id=ETH;GOLD&time=2022-03-19",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchangerate",
+						"BTC"
+					],
+					"query": [
+						{
+							"key": "invert",
+							"value": "false"
+						},
+						{
+							"key": "filter_asset_id",
+							"value": "ETH;GOLD"
+						},
+						{
+							"key": "time",
+							"value": "2022-03-19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchangerate/history/periods",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchangerate/history/periods",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchangerate",
+						"history",
+						"periods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/exchangerate/BTC/USD/history?periods",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/exchangerate/BTC/USD/history?period_id=5MIN&time_start=2022-03-21T12:00:00&time_end=2022-03-21T14:00:00",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"exchangerate",
+						"BTC",
+						"USD",
+						"history"
+					],
+					"query": [
+						{
+							"key": "period_id",
+							"value": "5MIN"
+						},
+						{
+							"key": "time_start",
+							"value": "2022-03-21T12:00:00"
+						},
+						{
+							"key": "time_end",
+							"value": "2022-03-21T14:00:00"
+						},
+						{
+							"key": "limit",
+							"value": "10000",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/ohlcv/periods",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/ohlcv/periods",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"ohlcv",
+						"periods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/ohlcv/periods/:LatestData",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/ohlcv/BITSTAMP_SPOT_ETH_USD/latest?period_id=1MIN",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"ohlcv",
+						"BITSTAMP_SPOT_ETH_USD",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "period_id",
+							"value": "1MIN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/ohlcv/periods/:HistoricalData",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/ohlcv/BITSTAMP_SPOT_BTC_USD/history?period_id=5MIN&time_start=2022-03-19T00:00:00&time_end=2022-03-23T00:00:00&limit=1000",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"ohlcv",
+						"BITSTAMP_SPOT_BTC_USD",
+						"history"
+					],
+					"query": [
+						{
+							"key": "period_id",
+							"value": "5MIN"
+						},
+						{
+							"key": "time_start",
+							"value": "2022-03-19T00:00:00"
+						},
+						{
+							"key": "time_end",
+							"value": "2022-03-23T00:00:00"
+						},
+						{
+							"key": "limit",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/trades/latest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/trades/latest?limit=1000&filter_symbol_id=ETH;BTC",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"trades",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1000"
+						},
+						{
+							"key": "filter_symbol_id",
+							"value": "ETH;BTC"
+						},
+						{
+							"key": "include_id",
+							"value": "",
+							"description": "Information that additional exchange trade identifier should be included in the id_trade parameter of the trade if exchange providing identifiers.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/trades/history",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluQGhjaXNzLmlvIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjQ4MjI0OTg0LCJleHAiOjE2NDgyMjg1ODR9.iSfMFEGMSUMxlV4VXkPBvlT6JfucWqWLzcp6A_C5bx8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "rest.hciss.io:5001/api/v1/trades/BITSTAMP_SPOT_ETH_USD/history?time_start=2022-02-23T00:00:00&time_end=2022-02-20T00:00:00&limit=1000",
+					"host": [
+						"rest",
+						"hciss",
+						"io"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v1",
+						"trades",
+						"BITSTAMP_SPOT_ETH_USD",
+						"history"
+					],
+					"query": [
+						{
+							"key": "include_id",
+							"value": "",
+							"description": "Information that additional exchange trade identifier should be included in the id_trade parameter of the trade if exchange providing identifiers.",
+							"disabled": true
+						},
+						{
+							"key": "time_start",
+							"value": "2022-02-23T00:00:00"
+						},
+						{
+							"key": "time_end",
+							"value": "2022-02-20T00:00:00"
+						},
+						{
+							"key": "limit",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
