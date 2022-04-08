@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
     req.headers.authorization;
 
   if (req.headers.authorization) {
+    
     token = req.headers.authorization.split("Bearer ")[1];
   }
 
